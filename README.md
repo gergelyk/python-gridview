@@ -23,12 +23,6 @@ pyenv local 3.8.2
 pip install gridview
 ```
 
-## Usage
-
-```sh
-poetry run python gridview/hello.py
-```
-
 ## Development
 
 ```sh
