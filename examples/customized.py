@@ -1,4 +1,3 @@
-from pathlib import Path
 from gridview import GridView
 
 grid = [
@@ -39,5 +38,4 @@ class Report(GridView):
                 return '#ff8888'
         return None
 
-svg_path = Path(__file__).with_suffix('.svg')
-Report(grid).save(svg_path)
+Report(grid).save('customized.svg')

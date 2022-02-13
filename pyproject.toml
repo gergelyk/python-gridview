@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "gridview"
-version = "0.1.1"
+version = "0.1.2"
 description = "Visualize your 2D iterable."
 authors = ["Grzegorz Krasoń <grzegorz.krason@gmail.com>"]
 homepage = "https://gergelyk.github.io/python-gridview"

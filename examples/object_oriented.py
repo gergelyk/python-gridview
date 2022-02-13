@@ -1,4 +1,3 @@
-from pathlib import Path
 from gridview import GridView
 
 class Animal:
@@ -23,7 +22,7 @@ class Person:
     def color(self):
         return 'lightblue'
 
-grid = [['']*5 for n in range(6)]
+grid = [[None]*5 for n in range(6)]
 grid[0][2] = Animal('Ozzy')
 grid[4][1] = Animal('Axel')
 grid[2][3] = Person('Susana', male=False)
@@ -32,10 +31,14 @@ grid[5][4] = Person('James', male=True)
 
 class Report(GridView):
     flip_x = True
-    default_color = '#ffffaa'
+    default_color = '#ffeeee'
 
     def color(self, e, x, y):
         return e.color()
+    
+    def text(self, e, x, y):
+        if e is None:
+            return f'[x:{x}, y:{y}]'
+        return str(e)
 
-svg_path = Path(__file__).with_suffix('.svg')
-Report(grid).save(svg_path)
+Report(grid).save('object_oriented.svg')
