@@ -220,19 +220,16 @@
 <p>Visualize your 2D iterable.</p>
 <h2 id="usage-examples">Usage examples<a class="headerlink" href="#usage-examples" title="Permanent link">¶</a></h2>
 <h3 id="simple">Simple<a class="headerlink" href="#simple" title="Permanent link">¶</a></h3>
-<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
-<span class="kn">from</span> <span class="nn">gridview</span> <span class="kn">import</span> <span class="n">GridView</span>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">gridview</span> <span class="kn">import</span> <span class="n">GridView</span>
 
 <span class="n">grid</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">],</span> <span class="p">[</span><span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">]]</span>
 
-<span class="n">svg_path</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="vm">__file__</span><span class="p">)</span><span class="o">.</span><span class="n">with_suffix</span><span class="p">(</span><span class="s1">'.svg'</span><span class="p">)</span>
-<span class="n">GridView</span><span class="p">(</span><span class="n">grid</span><span class="p">)</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">svg_path</span><span class="p">)</span>
+<span class="n">GridView</span><span class="p">(</span><span class="n">grid</span><span class="p">)</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s1">'simple.svg'</span><span class="p">)</span>
 </code></pre></div>
 <p>Resulting image:</p>
 <p><img alt="" src="simple.svg"/></p>
 <h3 id="customized">Customized<a class="headerlink" href="#customized" title="Permanent link">¶</a></h3>
-<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
-<span class="kn">from</span> <span class="nn">gridview</span> <span class="kn">import</span> <span class="n">GridView</span>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">gridview</span> <span class="kn">import</span> <span class="n">GridView</span>
 
 <span class="n">grid</span> <span class="o">=</span> <span class="p">[</span>
     <span class="p">[</span><span class="s1">'Month'</span><span class="p">,</span> <span class="s1">'Cost'</span><span class="p">,</span> <span class="s1">'Notes'</span><span class="p">],</span>
@@ -272,14 +269,12 @@
                 <span class="k">return</span> <span class="s1">'#ff8888'</span>
         <span class="k">return</span> <span class="kc">None</span>
 
-<span class="n">svg_path</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="vm">__file__</span><span class="p">)</span><span class="o">.</span><span class="n">with_suffix</span><span class="p">(</span><span class="s1">'.svg'</span><span class="p">)</span>
-<span class="n">Report</span><span class="p">(</span><span class="n">grid</span><span class="p">)</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">svg_path</span><span class="p">)</span>
+<span class="n">Report</span><span class="p">(</span><span class="n">grid</span><span class="p">)</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s1">'customized.svg'</span><span class="p">)</span>
 </code></pre></div>
 <p>Resulting image:</p>
 <p><img alt="" src="customized.svg"/></p>
 <h3 id="object-oriented">Object Oriented<a class="headerlink" href="#object-oriented" title="Permanent link">¶</a></h3>
-<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
-<span class="kn">from</span> <span class="nn">gridview</span> <span class="kn">import</span> <span class="n">GridView</span>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">gridview</span> <span class="kn">import</span> <span class="n">GridView</span>
 
 <span class="k">class</span> <span class="nc">Animal</span><span class="p">:</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
@@ -303,7 +298,7 @@
     <span class="k">def</span> <span class="nf">color</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">return</span> <span class="s1">'lightblue'</span>
 
-<span class="n">grid</span> <span class="o">=</span> <span class="p">[[</span><span class="s1">''</span><span class="p">]</span><span class="o">*</span><span class="mi">5</span> <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">6</span><span class="p">)]</span>
+<span class="n">grid</span> <span class="o">=</span> <span class="p">[[</span><span class="kc">None</span><span class="p">]</span><span class="o">*</span><span class="mi">5</span> <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">6</span><span class="p">)]</span>
 <span class="n">grid</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="n">Animal</span><span class="p">(</span><span class="s1">'Ozzy'</span><span class="p">)</span>
 <span class="n">grid</span><span class="p">[</span><span class="mi">4</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">Animal</span><span class="p">(</span><span class="s1">'Axel'</span><span class="p">)</span>
 <span class="n">grid</span><span class="p">[</span><span class="mi">2</span><span class="p">][</span><span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="n">Person</span><span class="p">(</span><span class="s1">'Susana'</span><span class="p">,</span> <span class="n">male</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
@@ -312,13 +307,17 @@
 
 <span class="k">class</span> <span class="nc">Report</span><span class="p">(</span><span class="n">GridView</span><span class="p">):</span>
     <span class="n">flip_x</span> <span class="o">=</span> <span class="kc">True</span>
-    <span class="n">default_color</span> <span class="o">=</span> <span class="s1">'#ffffaa'</span>
+    <span class="n">default_color</span> <span class="o">=</span> <span class="s1">'#ffeeee'</span>
 
     <span class="k">def</span> <span class="nf">color</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">e</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
         <span class="k">return</span> <span class="n">e</span><span class="o">.</span><span class="n">color</span><span class="p">()</span>
 
-<span class="n">svg_path</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="vm">__file__</span><span class="p">)</span><span class="o">.</span><span class="n">with_suffix</span><span class="p">(</span><span class="s1">'.svg'</span><span class="p">)</span>
-<span class="n">Report</span><span class="p">(</span><span class="n">grid</span><span class="p">)</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">svg_path</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">text</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">e</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">e</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">return</span> <span class="sa">f</span><span class="s1">'[x:</span><span class="si">{</span><span class="n">x</span><span class="si">}</span><span class="s1">, y:</span><span class="si">{</span><span class="n">y</span><span class="si">}</span><span class="s1">]'</span>
+        <span class="k">return</span> <span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
+
+<span class="n">Report</span><span class="p">(</span><span class="n">grid</span><span class="p">)</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s1">'object_oriented.svg'</span><span class="p">)</span>
 </code></pre></div>
 <p>Resulting image:</p>
 <p><img alt="" src="object_oriented.svg"/></p>
