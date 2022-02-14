@@ -316,7 +316,7 @@ default_color        </code>
 </span>
 <a class="headerlink" href="#gridview.gridview.GridView.default_color" title="Permanent link">¶</a></h2>
 <div class="doc doc-contents">
-<p>Color of element that fails to provide actual color.</p>
+<p>Color to be used when <code>color(e, x, y)</code> raises or returns <code>None</code>.</p>
 </div>
 </div>
 <div class="doc doc-object doc-attribute">
@@ -328,7 +328,7 @@ default_text        </code>
 </span>
 <a class="headerlink" href="#gridview.gridview.GridView.default_text" title="Permanent link">¶</a></h2>
 <div class="doc doc-contents">
-<p>Color of element that fails to provide actual text.</p>
+<p>Text to be used when <code>text(e, x, y)</code> raises.</p>
 </div>
 </div>
 <div class="doc doc-object doc-attribute">
@@ -419,7 +419,7 @@ __init__<span class="p">(</span><span class="bp">self</span><span class="p">,</s
 color<span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">e</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span> </code>
 <a class="headerlink" href="#gridview.gridview.GridView.color" title="Permanent link">¶</a></h2>
 <div class="doc doc-contents">
-<p>Abstract method that returns color assigned to element <code>e</code>. Coordinates are provided as <code>x</code> and <code>y</code>. Color should be HTML compatible, (e.g. <code>'#ff0000'</code> or <code>'red'</code>). Optionally color can be suffixed with label that builds up legend, e.g. <code>'#ff0000:some label'</code>.</p>
+<p>Abstract method that returns color assigned to element <code>e</code>. Coordinates are provided as <code>x</code> and <code>y</code>. Color should be HTML compatible, (e.g. <code>'#ff0000'</code> or <code>'red'</code>). Optionally color can be suffixed with label that builds up legend, e.g. <code>'#ff0000:foobar'</code>. If raises or returns <code>None</code>, <code>default_color</code> will be used.</p>
 <details class="quote">
 <summary>Source code in <code>gridview/gridview.py</code></summary>
 <table class="highlighttable">
@@ -428,13 +428,15 @@ color<span class="p">(</span><span class="bp">self</span><span class="p">,</span
 <div class="linenodiv">
 <pre><span></span>64
 65
-66</pre>
+66
+67</pre>
 </div>
 </td>
 <td class="code">
 <div class="highlight">
 <pre><span></span><code><span class="k">def</span> <span class="nf">color</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">e</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
-    <span class="sd">"""Abstract method that returns color assigned to element `e`. Coordinates are provided as `x` and `y`. Color should be HTML compatible, (e.g. `'#ff0000'` or `'red'`). Optionally color can be suffixed with label that builds up legend, e.g. `'#ff0000:some label'`."""</span>
+    <span class="sd">"""Abstract method that returns color assigned to element `e`. Coordinates are provided as `x` and `y`. Color should be HTML compatible, (e.g. `'#ff0000'` or `'red'`). Optionally color can be suffixed with label that builds up legend, e.g. `'#ff0000:foobar'`. If raises or returns `None`, `default_color` will be used.</span>
+<span class="sd">    """</span>
     <span class="k">return</span> <span class="kc">None</span>
 </code></pre>
 </div>
@@ -501,7 +503,7 @@ save<span class="p">(</span><span class="bp">self</span><span class="p">,</span>
 text<span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">e</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span> </code>
 <a class="headerlink" href="#gridview.gridview.GridView.text" title="Permanent link">¶</a></h2>
 <div class="doc doc-contents">
-<p>Abstract method that returns stringified version of element <code>e</code>. Coordinates are provided as <code>x</code> and <code>y</code>.</p>
+<p>Abstract method that returns stringified version of element <code>e</code>. Coordinates are provided as <code>x</code> and <code>y</code>. If raises, <code>default_text</code> will be used. If returns <code>None</code>, <code>str(e)</code> will be used.</p>
 <details class="quote">
 <summary>Source code in <code>gridview/gridview.py</code></summary>
 <table class="highlighttable">
@@ -516,8 +518,8 @@ text<span class="p">(</span><span class="bp">self</span><span class="p">,</span>
 <td class="code">
 <div class="highlight">
 <pre><span></span><code><span class="k">def</span> <span class="nf">text</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">e</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
-    <span class="sd">"""Abstract method that returns stringified version of element `e`. Coordinates are provided as `x` and `y`."""</span>
-    <span class="k">return</span> <span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
+    <span class="sd">"""Abstract method that returns stringified version of element `e`. Coordinates are provided as `x` and `y`. If raises, `default_text` will be used. If returns `None`, `str(e)` will be used."""</span>
+    <span class="k">return</span> <span class="kc">None</span>
 </code></pre>
 </div>
 </td>
