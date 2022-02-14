@@ -21,7 +21,6 @@ class Report(GridView):
     def text(self, e, x, y):
         if x == 1 and y > 0:
             return f'${e}'
-        return str(e)
 
     def color(self, e, x, y):
         if y == 0:
@@ -36,6 +35,5 @@ class Report(GridView):
         if x == 2:
             if e.endswith('!'):
                 return '#ff8888'
-        return None
 
 Report(grid).save('customized.svg')

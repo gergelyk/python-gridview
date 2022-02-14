@@ -25,9 +25,9 @@ class Dimensions:
 class GridView:
     """Render dwo dimensional iterable into customized SVG image."""
     default_color = '#ffffff'
-    """Color of element that fails to provide actual color."""
+    """Color to be used when `color(e, x, y)` raises or returns `None`."""
     default_text = ''
-    """Color of element that fails to provide actual text."""
+    """Text to be used when `text(e, x, y)` raises."""
     flip_x = False
     """Whether or not to flip X axis."""
     flip_y = False
@@ -58,11 +58,12 @@ class GridView:
         dwg.save()
 
     def text(self, e, x, y):
-        """Abstract method that returns stringified version of element `e`. Coordinates are provided as `x` and `y`."""
-        return str(e)
+        """Abstract method that returns stringified version of element `e`. Coordinates are provided as `x` and `y`. If raises, `default_text` will be used. If returns `None`, `str(e)` will be used."""
+        return None
 
     def color(self, e, x, y):
-        """Abstract method that returns color assigned to element `e`. Coordinates are provided as `x` and `y`. Color should be HTML compatible, (e.g. `'#ff0000'` or `'red'`). Optionally color can be suffixed with label that builds up legend, e.g. `'#ff0000:foobar'`."""
+        """Abstract method that returns color assigned to element `e`. Coordinates are provided as `x` and `y`. Color should be HTML compatible, (e.g. `'#ff0000'` or `'red'`). Optionally color can be suffixed with label that builds up legend, e.g. `'#ff0000:foobar'`. If raises or returns `None`, `default_color` will be used.
+        """
         return None
 
     def _wrap_elements(self):
@@ -81,6 +82,8 @@ class GridView:
             
             try:
                 text = self.text(element, x, y)
+                if text is None:
+                    text = str(element)
             except Exception:
                 if self.debug:
                     raise
