@@ -62,7 +62,7 @@ class GridView:
         return str(e)
 
     def color(self, e, x, y):
-        """Abstract method that returns color assigned to element `e`. Coordinates are provided as `x` and `y`. Color should be HTML compatible, (e.g. `'#ff0000'` or `'red'`). Optionally color can be suffixed with label that builds up legend, e.g. `'#ff0000:some label'`."""
+        """Abstract method that returns color assigned to element `e`. Coordinates are provided as `x` and `y`. Color should be HTML compatible, (e.g. `'#ff0000'` or `'red'`). Optionally color can be suffixed with label that builds up legend, e.g. `'#ff0000:foobar'`."""
         return None
 
     def _wrap_elements(self):
