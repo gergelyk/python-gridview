@@ -44,7 +44,6 @@ class Report(GridView):
     def text(self, e, x, y):
         if x == 1 and y > 0:
             return f'${e}'
-        return str(e)
 
     def color(self, e, x, y):
         if y == 0:
@@ -59,7 +58,6 @@ class Report(GridView):
         if x == 2:
             if e.endswith('!'):
                 return '#ff8888'
-        return None
 
 Report(grid).save('customized.svg')
 ```
@@ -103,7 +101,7 @@ grid[4][0] = Person('Tom', male=True)
 grid[5][4] = Person('James', male=True)
 
 class Report(GridView):
-    flip_x = True
+    flip_y = True
     default_color = '#ffeeee'
 
     def color(self, e, x, y):
@@ -111,8 +109,7 @@ class Report(GridView):
     
     def text(self, e, x, y):
         if e is None:
-            return f'[x:{x}, y:{y}]'
-        return str(e)
+            return f'x:{x}\ny:{y}'
 
 Report(grid).save('object_oriented.svg')
 ```
