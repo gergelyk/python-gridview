@@ -1,4 +1,7 @@
 # GridView
+![PyPI - Version](https://img.shields.io/pypi/v/gridview)
+![PyPI - License](https://img.shields.io/pypi/l/gridview)
+![PyPI - Downloads](https://img.shields.io/pypi/dm/gridview)
 
 Visualize your 2D iterable. See our usage [examples](https://gergelyk.github.io/python-gridview) now!
 
